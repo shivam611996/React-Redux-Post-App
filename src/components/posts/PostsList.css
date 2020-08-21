@@ -1,0 +1,41 @@
+.post-excerpt,
+.post-comment {
+  border: 2px solid;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.post-excerpt:hover {
+  cursor: pointer;
+}
+
+.post-title {
+  margin-bottom: 0px;
+}
+
+.post-details,
+.post-author-details {
+  margin-bottom: 16px;
+  padding: 32px;
+}
+
+.post-overview {
+  margin-bottom: 16px;
+}
+
+.post-author-details button {
+  margin-top: 16px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail {
+  margin-bottom: 16px;
+}
+
+.detail-title {
+  font-weight: bold;
+}
