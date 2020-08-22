@@ -13,7 +13,16 @@ const PostAuthorDetails = ({ open, author, closeDialog }) => {
     company: { name: companyName, catchPhrase, bs },
   } = author;
   return (
-    <Dialog fullScreen open={open} onClose={closeDialog}>
+    <Dialog
+      fullScreen
+      open={open}
+      onClick={(e) => {
+        // prevent event propogation and opening of PostDetails dialog
+        // when clicked anywhere on the dialog except Back button
+        e.stopPropagation();
+      }}
+      onClose={closeDialog}
+    >
       <section className="post-author-details">
         <h2>User Details</h2>
         <Detail title="Username" value={username} />
