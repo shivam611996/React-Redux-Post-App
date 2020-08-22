@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import Posts from "./Posts";
 import store from "../../redux/store";
 
+// Note: added some sample unit-test cases just for reference
 describe("<Posts />", () => {
   describe("when it renders", () => {
     it("should render 'Posts' heading", () => {
