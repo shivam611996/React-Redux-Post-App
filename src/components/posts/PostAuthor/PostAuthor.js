@@ -1,12 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import PostAuthorDetails from "../PostAuthorDetails/PostAuthorDetails";
+import { selectUserById } from "../../../redux/users/usersSlice";
 import Link from "@material-ui/core/Link";
 
 const PostAuthor = ({ userId, isLink }) => {
-  const author = useSelector((state) =>
-    state.users.find((user) => user.id === userId)
-  );
+  const author = useSelector((state) => selectUserById(state, userId));
 
   const [open, setOpen] = React.useState(false);
   const openDialog = (e) => {

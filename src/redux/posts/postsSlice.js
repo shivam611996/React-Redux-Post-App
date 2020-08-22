@@ -1,10 +1,16 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  createSelector,
+  createAsyncThunk,
+  createEntityAdapter,
+} from "@reduxjs/toolkit";
 
-const initialState = {
-  posts: [],
+const postsAdapter = createEntityAdapter();
+
+const initialState = postsAdapter.getInitialState({
   status: "idle",
   error: null,
-};
+});
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -23,7 +29,7 @@ const postsSlice = createSlice({
     [fetchPosts.fulfilled]: (state, action) => {
       state.status = "succeeded";
       // Add any fetched posts to the array
-      state.posts = state.posts.concat(action.payload);
+      postsAdapter.upsertMany(state, action.payload);
     },
     [fetchPosts.rejected]: (state, action) => {
       state.status = "failed";
@@ -34,7 +40,11 @@ const postsSlice = createSlice({
 
 export default postsSlice.reducer;
 
-export const selectAllPosts = (state) => state.posts.posts;
+export const { selectAll: selectAllPosts } = postsAdapter.getSelectors(
+  (state) => state.posts
+);
 
-export const selectPostById = (state, postId) =>
-  state.posts.find((post) => post.id === postId);
+export const selectPostsByUserId = createSelector(
+  [selectAllPosts, (state, userId) => userId],
+  (posts, userId) => posts.filter((post) => post.userId === userId)
+);

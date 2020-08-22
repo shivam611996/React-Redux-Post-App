@@ -4,17 +4,12 @@ import "./index.css";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
-import { fetchUsers } from "./redux/users/usersSlice";
-import { fetchComments } from "./redux/comments/commentsSlice";
-import PostsList from "./components/posts/PostsList";
-
-store.dispatch(fetchUsers());
-store.dispatch(fetchComments());
+import Posts from "./components/posts/Posts";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PostsList />
+      <Posts />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

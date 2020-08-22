@@ -26,16 +26,3 @@
 .post-author-details button {
   margin-top: 16px;
 }
-
-.detail {
-  display: flex;
-  flex-direction: column;
-}
-
-.detail {
-  margin-bottom: 16px;
-}
-
-.detail-title {
-  font-weight: bold;
-}
