@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Detail.css";
 
 const Detail = ({ title, value }) => {
@@ -8,6 +9,11 @@ const Detail = ({ title, value }) => {
       <span className="detail-value">{value}</span>
     </div>
   );
+};
+
+Detail.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default Detail;

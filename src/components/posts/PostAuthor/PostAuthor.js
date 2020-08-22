@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import PostAuthorDetails from "../PostAuthorDetails/PostAuthorDetails";
 import { selectUserById } from "../../../redux/users/usersSlice";
+import PropTypes from "prop-types";
 import Link from "@material-ui/core/Link";
 
 const PostAuthor = ({ userId, isLink }) => {
@@ -40,6 +41,11 @@ const PostAuthor = ({ userId, isLink }) => {
       />
     </>
   );
+};
+
+PostAuthor.propTypes = {
+  userId: PropTypes.number.isRequired,
+  isLink: PropTypes.bool,
 };
 
 export default PostAuthor;

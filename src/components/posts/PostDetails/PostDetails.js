@@ -1,6 +1,7 @@
 import React from "react";
 import PostAuthor from "../PostAuthor/PostAuthor";
 import PostComments from "../PostComments/PostComments";
+import PropTypes from "prop-types";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 
@@ -21,6 +22,12 @@ const PostDetails = ({ open, post, closeDialog }) => {
       </section>
     </Dialog>
   );
+};
+
+PostDetails.propTypes = {
+  open: PropTypes.bool.isRequired,
+  post: PropTypes.object.isRequired,
+  closeDialog: PropTypes.func.isRequired,
 };
 
 export default PostDetails;

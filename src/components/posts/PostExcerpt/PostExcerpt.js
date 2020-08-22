@@ -1,6 +1,7 @@
 import React from "react";
 import PostAuthor from "../PostAuthor/PostAuthor";
 import PostDetails from "../PostDetails/PostDetails";
+import PropTypes from "prop-types";
 
 const PostExcerpt = ({ post }) => {
   const [open, setOpen] = React.useState(false);
@@ -17,6 +18,10 @@ const PostExcerpt = ({ post }) => {
       <PostDetails open={open} post={post} closeDialog={closeDialog} />
     </>
   );
+};
+
+PostExcerpt.propTypes = {
+  post: PropTypes.object.isRequired,
 };
 
 export default PostExcerpt;

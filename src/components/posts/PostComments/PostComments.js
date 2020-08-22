@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectCommentsByPostId } from "../../../redux/comments/commentsSlice";
 import Detail from "../../_shared/Detail/Detail";
+import PropTypes from "prop-types";
 
 const PostComments = ({ postId }) => {
   const commentsForPosts = useSelector((state) =>
@@ -19,6 +20,10 @@ const PostComments = ({ postId }) => {
       ))}
     </div>
   );
+};
+
+PostComments.propTypes = {
+  postId: PropTypes.number.isRequired,
 };
 
 export default PostComments;

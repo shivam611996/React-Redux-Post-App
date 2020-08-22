@@ -1,5 +1,6 @@
 import React from "react";
 import Detail from "../../_shared/Detail/Detail";
+import PropTypes from "prop-types";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 
@@ -10,7 +11,7 @@ const PostAuthorDetails = ({ open, author, closeDialog }) => {
     email,
     website,
     company: { name: companyName, catchPhrase, bs },
-  } = author || { company: {} };
+  } = author;
   return (
     <Dialog fullScreen open={open} onClose={closeDialog}>
       <section className="post-author-details">
@@ -32,6 +33,12 @@ const PostAuthorDetails = ({ open, author, closeDialog }) => {
       </section>
     </Dialog>
   );
+};
+
+PostAuthorDetails.propTypes = {
+  open: PropTypes.bool.isRequired,
+  author: PropTypes.object.isRequired,
+  closeDialog: PropTypes.func.isRequired,
 };
 
 export default PostAuthorDetails;
